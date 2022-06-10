@@ -15,47 +15,42 @@ provider "aws" {
   #  access_key = ""
 }
 
-variable "tags" {
-  default = ["postgresql", "nodejs", "react"]
-}
-
-
 resource "aws_instance" "postgres_node" {
-  ami = var.myami
+  ami = "ami-0f095f89ae15be883"
   instance_type = var.instancetype
   key_name = var.mykey
   iam_instance_profile = aws_iam_instance_profile.ec2full.name
   vpc_security_group_ids = [aws_security_group.postgres-sec-gr.id]
   tags = {
     Name = "ansible_postgres"
-    stack = var.stack
-    environment = var.env
+    stack = "ansible_project"
+    environment = "development"
   }
 }
 
 resource "aws_instance" "react_node" {
-  ami = var.myami
+  ami = "ami-0f095f89ae15be883"
   instance_type = var.instancetype
   key_name = var.mykey
   iam_instance_profile = aws_iam_instance_profile.ec2full.name
   vpc_security_group_ids = [aws_security_group.react-sec-gr.id]
   tags = {
     Name = "ansible_react"
-    stack = var.stack
-    environment = var.env
+    stack = "ansible_project"
+    environment = "development"
   }
 }
 
 resource "aws_instance" "nodejs_node" {
-  ami = var.myami
+  ami = "ami-0f095f89ae15be883"
   instance_type = var.instancetype
   key_name = var.mykey
   iam_instance_profile = aws_iam_instance_profile.ec2full.name
   vpc_security_group_ids = [aws_security_group.nodejs-sec-gr.id]
   tags = {
     Name = "ansible_nodejs"
-    stack = var.stack
-    environment = var.env
+    stack = "ansible_project"
+    environment = "development"
   }
 }
 

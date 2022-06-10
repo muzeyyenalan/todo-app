@@ -1,7 +1,9 @@
-myami = "ami-0f095f89ae15be883"
-mykey = "Engin_Linux"
-mykeypem = "Engin_Linux.pem"
-instancetype = "t2.micro"
-region = "us-east-1"
-stack = "ansible_project"
-env = "development"
+//variable "aws_secret_key" {}
+//variable "aws_access_key" {}
+variable "region" {}
+variable "mykey" {}
+variable "mykeypem" {}
+variable "myami" {
+  description = "redhat enterprise linux 8 ami"
+}
+variable "instancetype" {}
