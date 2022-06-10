@@ -1,0 +1,7 @@
+myami = "ami-0f095f89ae15be883"
+mykey = "Engin_Linux"
+mykeypem = "Engin_Linux.pem"
+instancetype = "t2.micro"
+region = "us-east-1"
+stack = "ansible_project"
+env = "development"
