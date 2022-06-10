@@ -74,28 +74,10 @@ pipeline {
                 sh 'ls -l'
                 sh 'ansible --version'
                 sh 'ansible-inventory --graph'
-                ansiblePlaybook credentialsId: 'clarus', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory_aws_ec2.yml', playbook: 'docker_project.yml'
+                ansiblePlaybook credentialsId: 'egultekin', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory_aws_ec2.yml', playbook: 'docker_project.yml'
              }
         }
-        // stage('Test the Infrastructure') {
-        //      steps {
-        //          echo "Testing if the Clarusway TODO app is ready or not, by checking Public Ip Address of react instance"
-        //          script {
-        //          while(true) {
-        //          try {
-        //             react_ip = sh(script: 'terraform output -raw react_ip')
-        //             sh "curl -s --connect-timeout 60 $react_ip"
-        //             echo "Successfully connected to Viz App."
-        //             break
-        //             }
-        //          catch(Exception) {
-        //             echo 'Could not connect Viz App'
-        //             sleep(5)
-        //              }
-        //            }
-        //          }
-        //      }
-        //  }
+
         stage('Destroy the infrastructure'){
             steps{
                 timeout(time:5, unit:'DAYS'){
