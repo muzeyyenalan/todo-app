@@ -126,12 +126,6 @@
     - name: Pull docker image 
       shell: docker pull 686065111467.dkr.ecr.us-east-1.amazonaws.com/muzeyyen_alan/todo_app:react
 
-      docker_image:
-        name: "{{ image_name }}"
-        build:
-          path: "{{ container_path }}"
-        source: build
-        state: present
     - name: Launch react docker container
       docker_container:
         name: "{{ container_name }}"
